@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      const div = document.getElementById("myDiv");
+      div.style.display = "none";
+      //Correct way: Re-append the element after removing it using a temporary variable      
+      document.body.appendChild(div);
+      //Alternative approach using a parent element (better practice)
+      // const parent = div.parentElement;
+      // parent.removeChild(div);
+      // parent.appendChild(div);
+
+    }
+  </script>
+</body>
+</html>
